@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Voices of the Elephpant Podcast
-description: 
 category: API
 tags: [api, podcast, community]
 ---
