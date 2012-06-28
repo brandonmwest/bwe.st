@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Latest Posts
+title: Brandon's Blog
 ---
 {% include JB/setup %}
 
