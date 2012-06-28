@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Building a RESTish API, Part One"
-description: ""
-category: "API"
-tags: ["api","development"]
+title: Building a RESTish API, Part One
+description:
+category: API
+tags: [api,development]
 ---
 {% include JB/setup %}
 
