@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building a RESTish API, Part 1"
+title: "Building a RESTish API, Part One"
 description: ""
 category: "API"
 tags: ["api","development"]
@@ -45,4 +45,4 @@ Integration tests will eventually help you monitor your endpoints and give you w
 
 ---
 
-That's all I've got for now, but stay tuned for part 2.
+That's all I've got for now, but stay tuned for part two.
