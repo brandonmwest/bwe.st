@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Have Code, Will Travel: A Year as a Developer Evangelist"
+category: "evangelism"
+tags: [evangelism, travel]
+draft: true
+---
+{% include JB/setup %}
+
+## Where I Was and How I Got Here
+
+A year ago, I was doing freelance work and looking for a job. The company I worked for previously had taken a turn for the worse with pretty much all of the key decision makers and most talented people having been run off by incompetent management; the cultural well had been poisoned. I had been living off of savings and small contracts for about 5 months, and with the bitter taste of an unfulfilling job lingering, I was taking my time trying to find an opportunity where I could use the technologies I wanted to use rather than the ones on my resume at a company where culture and work/life balance were considered key ingredients. It's a tough mix to find, and I was getting discouraged to the point that I was considering switching fields and paying my bills with contract work in the meantime.
+
+My good friend Dan Lynn was going through the TechStars program with [FullContact](http://www.fullcontact.com), and he sent me a link to a Developer Evangelist job posting for SendGrid. I had never heard of developer evangelist as a job title, but after reading the job description I knew it was exactly what I was looking for. I had been a full-time developer since college, and I was used to long hours writing code, but I had also spent a bit of time traveling; several months in South Africa, a month in Hawaii, and a few weeks in Toronto, and I was starting to realize how awesome it is to be paid to travel and experience things I wouldn't be able to otherwise. Combining that with a lifelong passion for technology seemed like a win. The more I heard about the SendGrid culture and the more I thought about the job description, the more I decided it was the job for me.
+
+## What It's Like
+
+In the past year, I've travelled to [22 events in 18 cities](https://docs.google.com/spreadsheet/ccc?key=0AtOFhTsBmX_AdDlVM2hRTVhuZ0ZTN2phbFdiU2lIS2c#gid=0), not counting any events local to Colorado. I've been to tons of places that I had never been before, and the places of I'm attending later this year seem handpicked from my list of places I've always wanted to visit. I've attended amazing events on a regular basis, and I feel as though I'm working my way through a curriculum designed to produce startup founders and entrepreneurs. As Tim Falls told me during my first interview, being a developer evangelist is a runway to whatever comes next, and it's absolutely true. If you want to build a network of amazing developers, designers, and business people every day, then become a developer evangelist. If you want to hear first-hand stories of failure and success from amazing people, then become a developer evangelist. If you want to see new technologies being used in the field and talk to the people that are using them, then become a developer evangelist. If you're afraid of flying, don't become a developer evangelist.
+
+I've often heard that the ideal role for a technology generalist is startup founder. I would say that another option is developer evangelist. Being an evangelist requires roughly the same set of skills that make for a good entrepreneur; externally, you need a good technological foundation to build on, good communication and social skills, the ability to market a product, and you need to be able to convert customers into people that will be advocates for your service and credibility. Internally, you need to be able to work with pretty much every department in the company. Tech support might need your help if a client is having trouble with code. Sales might need help if a potential customer has technical questions. Operations might need help reproducing a problem. Product management needs to hear the feedback that is coming from developers and clients. Marketing might be producing technical content that needs to be proofread and verified. Documentation may be incorrect, incomplete, or in need of an update. A good developer evangelist needs to be qualified and willing to help out in all of these areas. A good evangelist is equal parts [hacker and hustler](http://learntoduck.com/micah/hackers-hustlers/) and able to switch between those roles with ease. When you're not on the road, your day-to-day duties can vary drastically.
+
+Being on the road and working weekends for months in a row is a grind, and it can wear a person down. It can become hard to schedule time with family and friends. You'll find yourself awake in your hotel bed at two in the morning wishing that you were back home. A scheduling conflict will come up and you'll have to head to the airport without much warning. Your flight will be delayed or cancelled and you'll spend a whole Saturday hanging out in an airport lounge (at least they have beer). In the end, the things I've experienced and the lessons I've learned far outweigh the negatives.
+
+## Where I'm Going
+
+In a literal sense, the next chapter for me involves a lot more international travel as we continue to take SendGrid around the world. Beyond that, I'm not really sure what the next step will be. I could easily see myself doing the evangelist thing f

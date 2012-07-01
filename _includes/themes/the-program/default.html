@@ -14,8 +14,8 @@
 </head>
 <body>
 
-<div id="page" class="hentry">
-	<header class="the-header">
+<div id="page" class="row">
+	<header class="span3">
 		<div class="unit-head">
 			<div class="unit-inner unit-head-inner">
 				<nav class="nav-global">
@@ -26,11 +26,17 @@
 						<li class="category"><a href="/categories.html">categories</a></li>
 						<li class="tag"><a href="/tags.html">tags</a></li>
 					</ul>
+					<h4>about</h4>
+					<ul>
+						<li class="contact"><a href="mailto:brawest@gmail.com">{{ site.author.email }}</a></li>
+						<li class="github"><a href="http://github.com/{{ site.author.github }}/" rel="me">github.com/{{ site.author.github }}</a></li>
+						<li class="twitter"><a href="http://twitter.com/{{ site.author.twitter }}/" rel="me">twitter.com/{{ site.author.twitter }}</a></li>
+					</ul>
 				</nav>
 			</div><!-- unit-inner -->
 		</div><!-- unit-head -->
 	</header>
-	<div class="body" role="main">
+	<div class="span9" role="main">
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
@@ -39,20 +45,6 @@
 			</div><!-- unit-inner -->
 		</div><!-- unit-body -->
 	</div><!-- body -->
-	<footer class="the-footer">
-		<div class="unit-foot">
-			<div class="unit-inner unit-foot-inner">
-				<div class="misc vcard">
-					<h4>about</h4>
-					<ul>
-						<li class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn email">{{ site.author.email }}</span></address></li>
-						<li class="github"><a href="http://github.com/{{ site.author.github }}/" rel="me">github.com/{{ site.author.github }}</a></li>
-						<li class="twitter"><a href="http://twitter.com/{{ site.author.twitter }}/" rel="me">twitter.com/{{ site.author.twitter }}</a></li>
-					</ul>
-				</div><!-- misc -->
-			</div><!-- unit-foot-inner -->
-		</div><!-- unit-foot -->
-	</footer>
 </div><!-- page -->
 <script>
 	(function(d, s) {

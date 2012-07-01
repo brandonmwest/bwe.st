@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Voices of the Elephpant Podcast
-category: API
+category: api
 tags: [api, podcast, community]
 ---
 {% include JB/setup %}
