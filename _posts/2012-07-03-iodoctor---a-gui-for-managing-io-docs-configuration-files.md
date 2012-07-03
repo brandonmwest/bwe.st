@@ -20,7 +20,7 @@ In February, where I attended [API Hackday](http://apihackday.com) in New York, 
 
 * The JavaScript is pretty much a bunch of spaghetti that is tightly coupled to the DOM. Not ideal, but hey, it works. I want to refactor and use a JS MVC framework to fix things.
 
-* Perhaps support exporting to different schemas, such as the [Google API Discovery](https://developers.google.com/discovery/v1/using).
+* Perhaps support exporting to different schemas, such as the [Google API Discovery](https://developers.google.com/discovery/v1/using) schema.
 
 * Interactive docs are good, but static documentation with additional information is also valuable, for a lot of reasons.
 
