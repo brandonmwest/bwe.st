@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "iodoctor   A GUI for Managing I/O Docs Configuration Files"
+title: "iodoctor: A GUI for Managing I/O Docs Configuration Files"
 category: api
 tags: [api, open source, development, iodocs]
 ---
