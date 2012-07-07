@@ -79,7 +79,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : brandonmwest
    
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
