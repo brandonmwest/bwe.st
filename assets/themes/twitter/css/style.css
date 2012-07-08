@@ -37,6 +37,8 @@ h6 {
   font-family: UbuntuMono-B, consolas, monaco, monospace;
 }
 
+.posts h2 { font-size:20px; }
+
 /* Override some defaults */
 .navbar {
   margin-bottom: 0;
