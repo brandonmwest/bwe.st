@@ -7,7 +7,7 @@ tags: [development, work, opinion]
 ---
 {% include JB/setup %}
 
-I had great mentors when I was a young developer, but there are still a few things that I wish I had known when I was starting out. Of course this is purely my opinion; if you disagree, I'd love to hear your perspective.
+I had some great mentors when I was a young developer, but there are still a few things that I wish I had known when I was starting out. Of course this is purely my opinion; if you disagree, I'd love to hear your perspective.
 
 ##Work Where You Can Fail
 
@@ -21,7 +21,7 @@ Operationally, things should be structured in a way that provides access to sand
 
 You can learn a lot from consulting, including some product skills, but there are a few reasons why I would encourage developers to take jobs working with product rather than doing client or spec work, which is what you'd do at a consulting shop.
 
-Consulting doesn't scale horizontally. If a consultancy wants to make more money, they either need to increase the productivity of their employees to bill more hours or add more employees. Compared to a product-focused startup, where the business is working towards some kind of exit, consultancies are a bit like a hamster wheel; is there a goal you are progressing toward that doesn't end with the project you're currently on? Which company do you think offers the most growth opportunities, company A with $10m/year in revenue from consulting and 50 employees, or company B with $10m/year in revenue from product and 15 employees? In which company will be it easier to have your input heard? And in the unlikely case that company A even gives employees stock, which one would you rather have equity in?
+Consulting doesn't scale horizontally. If a consultancy wants to make more money, they either need to increase the productivity of their employees to bill more hours or add more employees. Compared to a product-focused startup, where the business is working towards some kind of exit, consultancies are a bit like a hamster wheel; is there a goal you are progressing toward that doesn't end with the project you're currently on? Which company do you think offers the most growth opportunities, company A with $10m/year in revenue from consulting and 50 employees, or company B with $10m/year in revenue from product and 15 employees? In which company will be it easier to have your input heard? And in the unlikely case that company A even gives employees stock, which one would you rather have equity in? Actual equity beats sweat equity every time.
 
 If you're going to do client work, then you're better off as a freelancer as soon as your resume allows. Take a look at what your hourly wage is and compare that to the rate at which the business is billing your hours to customers. The best way to get more of that pie is to be the guy billing those hours, whether you are working them or not. And when a client turns out to be awful, you can fire them.
 
