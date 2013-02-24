@@ -25,4 +25,6 @@ upfront cost is a little higher, but you can also use this setup with a
 couple other parts for a
 kegerator.
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/9c7lVunoooI" frameborder="0" allowfullscreen> </iframe>
+<iframe width="420" height="315"
+src="http://www.youtube.com/embed/9c7lVunoooI" frameborder="0"
+allowfullscreen="allowfullscreen"> </iframe>
