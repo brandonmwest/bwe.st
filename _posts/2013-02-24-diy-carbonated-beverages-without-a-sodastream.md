@@ -7,6 +7,10 @@ tags: []
 ---
 {% include JB/setup %}
 
+<iframe width="640" height="480"
+src="http://www.youtube.com/embed/9c7lVunoooI" frameborder="0"
+allowfullscreen="allowfullscreen"> </iframe>
+
 Sparkling water is one of my favorite drinks; it's refreshing, it makes
 you burp, and it can be used for cocktails and cooking. I looked into
 getting a Sodastream system but I really don't like the business model.
@@ -25,6 +29,3 @@ upfront cost is a little higher, but you can also use this setup with a
 couple other parts for a
 kegerator.
 
-<iframe width="420" height="315"
-src="http://www.youtube.com/embed/9c7lVunoooI" frameborder="0"
-allowfullscreen="allowfullscreen"> </iframe>
