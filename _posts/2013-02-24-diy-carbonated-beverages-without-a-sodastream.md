@@ -2,8 +2,8 @@
 layout: post
 title: "DIY Carbonated Beverages Without a Sodastream"
 description: ""
-category: 
-tags: []
+category: DIY 
+tags: [DIY, opinion, hobby]
 ---
 {% include JB/setup %}
 
