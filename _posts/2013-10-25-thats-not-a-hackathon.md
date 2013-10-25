@@ -34,5 +34,4 @@ If you disagree, that's fine. Good luck at the Salesforce demo day and
 the TC Disrupt demo day events. I'll see you at the genuine hackathons,
 with my fellow hackers.
 
-
-
+**Update**: [The rules](http://res.cloudinary.com/hy4kyit2a/image/upload/Final%201M%20Hackathon%202013%20Rules%20%282%29.pdf) do state "The application you or your team submits must:... have been developed solely as part of this Hackathon." It is not clear how this rule will be enforced; in my experience this can and will be circumvented.
