@@ -15,7 +15,7 @@ team and an idea,  see who can make the best mobile app in a limited period of t
 win a million dollars!
 
 But the rules allow any projects to be demoed as long as they have not been
-previously submitted. In fact, they encourage working on something ahead
+previously launched. In fact, they encourage working on something ahead
 of time. 
 
 > "$1 million is going to bring out the best of the best. So don’t wait until Dreamforce, you’re going to want to get started now."
