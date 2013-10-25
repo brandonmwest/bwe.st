@@ -11,7 +11,7 @@ tags: [opinion, community]
 event](http://blogs.developerforce.com/developer-relations/2013/10/salesforce-one-million-dollar-hackathon.html)
 that they are positioning as a hackathon with a million dollar top
 prize. That sounds pretty cool, right? Show up with your laptop and your
-team and an idea,  see who can make the best mobile app in a limited period of time, and try to
+team and an idea,  see who can make the best mobile app in a limited period of timeg, and try to
 win a million dollars!
 
 But the rules allow any projects to be demoed as long as they have not been
@@ -34,4 +34,4 @@ If you disagree, that's fine. Good luck at the Salesforce demo day and
 the TC Disrupt demo day events. I'll see you at the genuine hackathons,
 with my fellow hackers.
 
-**Update**: [The rules](http://res.cloudinary.com/hy4kyit2a/image/upload/Final%201M%20Hackathon%202013%20Rules%20%282%29.pdf) do state "The application you or your team submits must:... have been developed solely as part of this Hackathon." It is not clear how this rule will be enforced; in my experience this can and will be circumvented.
+**Update**: [The rules](http://res.cloudinary.com/hy4kyit2a/image/upload/Final%201M%20Hackathon%202013%20Rules%20%282%29.pdf) do state "The application you or your team submits must:... have been developed solely as part of this Hackathon." But according to Salesforce "the hackathon challenge begins today."
