@@ -11,7 +11,7 @@ tags: [opinion, community]
 event](http://blogs.developerforce.com/developer-relations/2013/10/salesforce-one-million-dollar-hackathon.html)
 that they are positioning as a hackathon with a million dollar top
 prize. That sounds pretty cool, right? Show up with your laptop and your
-team and an idea,  see who can make the best mobile app in 24 hours, and try to
+team and an idea,  see who can make the best mobile app in a limited period of time, and try to
 win a million dollars!
 
 But the rules allow any projects to be demoed as long as they have not been
