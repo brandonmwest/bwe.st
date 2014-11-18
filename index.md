@@ -5,12 +5,13 @@ title: Latest Posts
 {% include JB/setup %}
 
 
-<h2>Latest 3 Posts from SendGrid.com</h2>
+<h3>Latest Posts from SendGrid.com</h3>
 <ul id="sg_posts" class="posts">
 </ul>
 
 <hr/>
 
+<h3>Personal Blog</h3>
 <ul id="posts" class="posts">
   {% for post in site.posts %}
     <li><h2><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>  <small>{{ post.date | date_to_string }}</small></h2> </li>
