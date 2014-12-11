@@ -10,9 +10,11 @@ tags: [development, open source, opinion]
 “A developer’s resume has been replaced by a GitHub account.” You’ve heard someone say this. I’ve probably said it at some point myself without really thinking about what it meant. But it’s bullshit.
 
 A resume and a GitHub account provide different kinds of quantitative data. Replacing one with the other means you’re throwing out good information. They complement each other and work best together, like hot fudge and ice cream. I guess you could eat hot fudge without ice cream, but why would you? Other sources of information on the internet can provide much more qualitative information about people, and these sources should inform one’s opinion more than GitHub does.
+
 ## Quantitative Data is Good
 
 GitHub repos show a few quantitative things about a developer. You can look at a GitHub profile and answer: does this person write publicly available code? in what languages do they write that code? do they follow idiomatic principles of that language? do they write unit tests? and other similar kinds of information. That’s good data, but consider how much weight to place on a person’s public code. 
+
 ## GitHub Doesn’t Tell the Whole Story
 
 Git is relatively new, and GitHub is newer. If a person has written code for only a few years and uses open source software, then a GitHub account might indeed have a significant portion of the work that person has done. For people writing code for a longer period of time, there’s a slim chance any work done prior to ~2009 appears on GitHub. Others may have worked on projects under NDA. It’s easy to think of GitHub as a portfolio, but it may not be a representative sample.
