@@ -141,8 +141,8 @@ var positionText = function(){
 
 var showLoader = function(){
   $("#overlay").css({
-    top  : $('#slide_content_container').offset().top + 200,
-    left : $('#slide_content_container').offset().left,
+    top  : "100px",
+    left : $('#slide_content_container').left,
     height: $('body').height(),
     width : $('body').width()
   });    
@@ -169,7 +169,6 @@ var newImage = function(){
   showLoader();
   search_term = corpora["nouns"].randomElement();
   getImage();
-  positionText();
 }
 
 var newBullets = function(){
@@ -250,11 +249,14 @@ var getImage = function() {
       $("#slide_image").remove();
 
       var image = $('<img id="slide_image" src="' + src + '"/>');
-      $(image).load(positionText);
-      $(image).load(randomTextColor);
-      $("#image_container").append(image);
 
-      hideLoader();
+      $(image).load(function() {
+        randomTextColor();
+        hideLoader();
+        setTimeout(positionText,05);
+      });
+
+      $("#image_container").append(image);
    })
    .fail(function(){
       $("#slide_image").remove();
