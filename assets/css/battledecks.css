@@ -22,13 +22,14 @@ button:hover {
 }
 
 #buttons {
+	z-index: 1000;
 	text-align: center;
 }
 
 #overlay { 
 	top: 0;
 	left: 0;
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	display:none;

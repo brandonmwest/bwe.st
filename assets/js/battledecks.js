@@ -4,8 +4,6 @@
 
 //find better source of images
 
-//let the user roll new image, new caption, new bullets separately
-
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
@@ -100,6 +98,8 @@ var init = function(){
 
     $('#inner h2').draggable({ axis: "y", containment: "parent"});
     $('#bullets').draggable({ containment: "parent"});
+
+    setTimeout(generateSlide,500);
 };
 
 $(document).ready(init);
@@ -126,21 +126,30 @@ var randomTextColor = function() {
 }
 
 var positionText = function(){
-  //var random_top_offset = Math.floor((Math.random() * ($('#slide_image').height() - 250)) + 1);
-
   $("#inner").css({
     position: "absolute",
     top: $('#slide_image').offset().top,
-    left : ($('#overlay').width() - $('#slide_image').innerWidth()) / 2,
-    width : $('#slide_image').width(),
-    height : $('#slide_image').height()
+    left : $('#slide_image').offset().left + 5,
+    width : $('#slide_image').innerWidth(),
+    height : $('#slide_image').innerHeight()
+  });
+
+  $('#bullets').css({
+    top: $('#slide_image').offset().top - 100
   });
 }
 
 var showLoader = function(){
+  $("#overlay").css({
+    top  : $('#slide_content_container').offset().top + 200,
+    left : $('#slide_content_container').offset().left,
+    height: $('body').height(),
+    width : $('body').width()
+  });    
+
   $("#loader").css({
-    top  : ($('#overlay').height() / 2)-48,
-    left : ($('#overlay').width() / 2)-48
+    top  : "200px",
+    left : ($('body').width() / 2)-48,
   });
   $('#slide_content_container').hide();
   $('#overlay').show();
@@ -160,6 +169,7 @@ var newImage = function(){
   showLoader();
   search_term = corpora["nouns"].randomElement();
   getImage();
+  positionText();
 }
 
 var newBullets = function(){
