@@ -97,6 +97,8 @@ var init = function(){
     $('#new_bullets').click(newBullets);
     $('#new_image').click(newImage);
     $('#new_colors').click(randomTextColor);
+
+    $('#inner').draggable({ axis: "y", containment: "parent"});
 };
 
 $(document).ready(init);
@@ -153,6 +155,7 @@ var newTitle = function(){
 }
 
 var newImage = function(){
+  showLoader();
   search_term = corpora["nouns"].randomElement();
   getImage();
 }
