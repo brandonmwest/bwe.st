@@ -50,6 +50,7 @@ button:hover {
 
 #slide_content_container {
 	display:none;
+	color: white; 
 }
 
 #slide_content_container #slide_image{ 
@@ -61,17 +62,15 @@ button:hover {
 
 #slide_content_container h2 span { 
 	display: block;
-	color: white; 
 	background: rgb(0, 0, 0); /* fallback color */
 	background: rgba(0, 0, 0, 0.7);
 	padding: 10px;
 }
 
 #slide_content_container ul {
-	color: white;
 	background: rgb(0, 0, 0); /* fallback color */
 	background: rgba(0, 0, 0, 0.7);
 	padding-top:20px;
 	padding-bottom:20px;
-	margin:20px;
+	margin:40px;
 }

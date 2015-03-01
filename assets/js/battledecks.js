@@ -1,6 +1,9 @@
-//position the text with javascript randomly
-//add company corpora
+//add more kinds of captions and randomly choose them
+
+//utilize company corpora
+
 //find better source of images
+
 //let the user roll new image, new caption, new bullets separately
 
 Array.prototype.randomElement = function () {
@@ -29,52 +32,52 @@ var images = {};
 var corpora = {};
 var corpora_urls = [
    {
-      "name": "buzzword_adverbs",
-      "url": "/assets/data/buzzwords/adverbs.json"
+      "name":         "buzzword_adverbs",
+      "url":         "/assets/data/buzzwords/adverbs.json"
    },
    {
-      "name": "buzzword_verbs",
-      "url": "/assets/data/buzzwords/verbs.json"
+      "name":         "buzzword_verbs",
+      "url":         "/assets/data/buzzwords/verbs.json"
    },
    {
-      "name": "buzzword_adjectives",
-      "url": "/assets/data/buzzwords/adjectives.json"
+      "name":         "buzzword_adjectives",
+      "url":         "/assets/data/buzzwords/adjectives.json"
    },
    {
-      "name": "buzzword_nouns",
-      "url": "/assets/data/buzzwords/nouns.json"
+      "name":         "buzzword_nouns",
+      "url":         "/assets/data/buzzwords/nouns.json"
    },
    {
-      "name": "computer_science_nouns",
-      "url": "/assets/data/technology/computer_sciences.json"
+      "name":         "computer_science_nouns",
+      "url":         "/assets/data/technology/computer_sciences.json"
    },
    {
-      "name": "startups",
-      "url": "/assets/data/technology/startups.json"
+      "name":         "startups",
+      "url":         "/assets/data/technology/startups.json"
    },
    {
-      "name": "objects",
-      "url": "/assets/data/objects/objects.json"
+      "name":         "objects",
+      "url":         "/assets/data/objects/objects.json"
    },
    {
-      "name": "nasdaq_companies",
-      "url": "/assets/data/corporations/nasdaq.json"
+      "name":         "nasdaq_companies",
+      "url":         "/assets/data/corporations/nasdaq.json"
    },
    {
-      "name": "verbs",
-      "url": "/assets/data/words/verbs.json"
+      "name":         "verbs",
+      "url":         "/assets/data/words/verbs.json"
    },
    {
-      "name": "nouns",
-      "url": "/assets/data/words/nouns.json"
+      "name":         "nouns",
+      "url":         "/assets/data/words/nouns.json"
    },
    {
-      "name": "adverbs",
-      "url": "/assets/data/words/adverbs.json"
+      "name":         "adverbs",
+      "url":         "/assets/data/words/adverbs.json"
    },
    {
-      "name": "adjectives",
-      "url": "/assets/data/words/adjectives.json"
+      "name":         "adjectives",
+      "url":         "/assets/data/words/adjectives.json"
    }
 ];
 
@@ -94,11 +97,34 @@ var init = function(){
 
 $(document).ready(init);
 
+//http://stackoverflow.com/questions/5650924/javascript-color-contraster
+var setTextColor = function(red, green, blue) {
+  var brightness;
+  brightness = (red * 299) + (green * 587) + (blue * 114);
+  brightness = brightness / 255000;
+
+  // values range from 0 to 1
+  // anything greater than 0.5 should be bright enough for dark text
+  if (brightness >= 0.5) {
+    $('#slide_content_container').css("color","#222")
+  } else {
+    $('#slide_content_container').css("color","#EEE")
+  }
+}
+
 var positionText = function(){
-  var random_top_offset = Math.floor((Math.random() * ($('#slide_image').height() - 200)) + 1);
+  var random_top_offset = Math.floor((Math.random() * ($('#slide_image').height() - 250)) + 1);
+
+  var hex_color = Colors.randomElement();
+  var rgb = hexToRgb(hex_color);
+
+  $("#slide_content_container h2 span").css("background","rgba(" + rgb.r + "," + rgb.b + "," + rgb.b +", 0.8");
+  $("#slide_content_container ul").css("background","rgba(" + rgb.r + "," + rgb.b + "," + rgb.b +", 0.8");
+
+  setTextColor(rgb.r, rgb.g, rgb.b);
 
   $("#inner").css({
-    position: "absolute",
+    position:         "absolute",
     top  : $('#slide_image').offset().top + random_top_offset,
     left : ($('#overlay').width() - $('#slide_image').innerWidth()) / 2,
     width : $('#slide_image').width()
@@ -137,6 +163,7 @@ var generateContent = function() {
   noun = corpora["nouns"].randomElement().pluralize();
   search_term = noun;
 
+  //randomly pick from several caption formats
   caption = corpora["buzzword_adjectives"].randomElement()
     + " " + noun
     + " " + connectors.randomElement()
@@ -163,7 +190,7 @@ var getImage = function() {
    var options = "&is_commons=true&per_page=10&format=json&content_type=4"
    var url = flickr_url + "&text=" + search_term + options + "&api_key=" + flickr_key;
 
-   $.ajax({url:url, dataType: "text"})
+   $.ajax({url:url, dataType:         "text"})
    .done(function(response, statusText){
       var text = response;
       var json_string = text.replace("jsonFlickrApi(","").slice(0, - 1);
@@ -183,7 +210,6 @@ var getImage = function() {
       var src = getImageSrc(item);
       var link = getImageLink(item);
       $('#flickr_link').attr("href",link);
-      $('#slide_image').attr("src",src);
 
       $("#slide_image").remove();
 
@@ -191,6 +217,12 @@ var getImage = function() {
       $(image).load(positionText);
       $("#image_container").append(image);
 
+      hideLoader();
+   })
+   .fail(function(){
+      $("#slide_image").remove();
+      var fail = $('<h2 id="slide_image">Failed to get image.</h2>');
+      $("#image_container").append(fail);
       hideLoader();
    });
 };
@@ -263,3 +295,55 @@ var ing = function(verb) {
   return result;
 }
 
+Colors = ["#00ffff",
+"#f0ffff",
+"#f5f5dc",
+"#000000",
+"#0000ff",
+"#a52a2a",
+"#00ffff",
+"#00008b",
+"#008b8b",
+"#a9a9a9",
+"#006400",
+"#bdb76b",
+"#8b008b",
+"#556b2f",
+"#ff8c00",
+"#9932cc",
+"#8b0000",
+"#e9967a",
+"#9400d3",
+"#ff00ff",
+"#ffd700",
+"#008000",
+"#4b0082",
+"#f0e68c",
+"#add8e6",
+"#e0ffff",
+"#90ee90",
+"#d3d3d3",
+"#ffb6c1",
+"#ffffe0",
+"#00ff00",
+"#ff00ff",
+"#800000",
+"#000080",
+"#808000",
+"#ffa500",
+"#ffc0cb",
+"#800080",
+"#800080",
+"#ff0000",
+"#c0c0c0",
+"#ffffff",
+"#ffff00"]
+
+var hexToRgb = function(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
