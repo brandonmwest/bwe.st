@@ -176,6 +176,8 @@ var getImage = function() {
       images = data.photos.photo;
       var item = data.photos.photo.randomElement();
       var src = getImageSrc(item);
+      var link = getImageLink(item);
+      $('#flickr_link').attr("href",link);
       $('#slide_image').attr("src",src);
    });
 };
@@ -208,7 +210,7 @@ var getImageLink = function(item){
    var img='http://farm'+farm+'.static.flickr.com/'+server+'/'+base;
    var urlz='http://www.flickr.com/photos/'+owner+'/'+id;
    
-   return link='<a href="'+urlz+'" mce_href="'+urlz+'" target="_blank">'+html+'</a>';   //var link='<a rel="flickr" title="'+ttlink+'" href="'+url+'" mce_href="'+url+'">'+html+'</a>';
+   return urlz;   //var link='<a rel="flickr" title="'+ttlink+'" href="'+url+'" mce_href="'+url+'">'+html+'</a>';
 }
 
 //from github.com/dariusk
