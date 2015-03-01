@@ -11,22 +11,22 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/battledecks.css"/>
 </head>
 <body>
-	<div id="slide_content_container">
-		<br/>
+	<div id="overlay">
+		<img src="/assets/images/loader.gif" id="loader" />
+	</div>
+	<div>
 		<button id="generate">Generate</button>
-		<br/><br/>
-		<img id="slide_image"></img>
+	</div>
+	<div id="slide_content_container">
+		<div id="image_container"><img id="slide_image"></img></div>
 		<div id="inner">
 			<h2>
 				<span id="slide_title"></span>
 			</h2>
-			<ul>
-				<li id="bullet1"></li>
-				<li id="bullet2"></li>
-				<li id="bullet3"></li>
+			<ul id="bullets">
 			</ul>
 		</div>
-		<a id="flickr_link">image on flickr for attribution</a>
+		<div id="link_container"><a id="flickr_link">image on flickr for attribution</a></div>
 	</div>
 </body>
 </html>

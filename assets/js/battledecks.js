@@ -1,5 +1,7 @@
-//need some sort of part of speech lib, inflection.js? pos.js?
-//load all the corpora into memory
+//position the text with javascript randomly
+//add company corpora
+//find better source of images
+//let the user roll new image, new caption, new bullets separately
 
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
@@ -77,7 +79,7 @@ var corpora_urls = [
 ];
 
 var init = function(){
-   //load all the corpora we want to use
+   //load all the corpora we want to use into memory
    corpora_urls.forEach(function(corpus) {
       $.ajax({
          url: corpus.url,
@@ -86,77 +88,80 @@ var init = function(){
          }
       });
    });
-   $('#generate').click(generateSlide);
+
+    $('#generate').click(generateSlide);
 };
 
 $(document).ready(init);
 
+var positionText = function(){
+  var random_top_offset = Math.floor((Math.random() * ($('#slide_image').height() - 200)) + 1);
+
+  $("#inner").css({
+    position: "absolute",
+    top  : $('#slide_image').offset().top + random_top_offset,
+    left : ($('#overlay').width() - $('#slide_image').innerWidth()) / 2,
+    width : $('#slide_image').width()
+  });
+}
+
+var showLoader = function(){
+  $("#loader").css({
+    top  : ($('#overlay').height() / 2)-48,
+    left : ($('#overlay').width() / 2)-48
+  });
+  $('#slide_content_container').hide();
+  $('#overlay').show();
+}
+
+var hideLoader = function(){
+  $('#overlay').hide();
+  $('#slide_content_container').show();
+}
+
 var generateSlide = function(){
+  showLoader();
+  $("#bullets").html("");
    var content = generateContent();
    $('#slide_title').text(content.caption);
-   $('#bullet1').text(content.bullet1);
-   $('#bullet2').text(content.bullet2);
-   $('#bullet3').text(content.bullet3);
+
+   content.bullets.forEach(function(bullet){
+    $("#bullets").append("<li>" + bullet + "</li>");
+   });
    getImage();
 }
 
 var connectors = ["using", "with", "employing", "implementing", "powered by"];
 
 var generateContent = function() {
-   words = {
-      "nouns": [ corpora["nouns"].randomElement(),
-         corpora["buzzword_nouns"].randomElement(),
-         corpora["objects"].randomElement()
-      ],
-      "adjectives": [
-         corpora["adjectives"].randomElement(),
-         corpora["buzzword_adjectives"].randomElement()
-      ],
-      "verbs": [
-         corpora["buzzword_verbs"].randomElement(),
-         corpora["verbs"].randomElement().present
-      ],
-      "adverbs": [
-         corpora["adverbs"].randomElement(),
-         corpora["buzzword_adverbs"].randomElement()
-      ],
-      "noun": corpora["nouns"].randomElement(),
-      "buzzword_noun": corpora["buzzword_nouns"].randomElement(),
-      "cs_noun": corpora["computer_science_nouns"].randomElement(),
-      "adjective": corpora["adjectives"].randomElement(),
-      "buzzword_adjective": corpora["buzzword_adjectives"].randomElement(),
-      "buzzword_verb": corpora["buzzword_verbs"].randomElement(),
-      "verb": corpora["verbs"].randomElement().present,
-      "buzzword_adverb": corpora["buzzword_adverbs"].randomElement(),
-      "adverb": corpora["adverbs"].randomElement(),
-      "objects": corpora["objects"].randomElement()
-   }
+  noun = corpora["nouns"].randomElement().pluralize();
+  search_term = noun;
 
-   search_term = words.nouns.randomElement();
-   noun1 = words.nouns.randomElement();
-   words.nouns.remove(noun1);
+  caption = corpora["buzzword_adjectives"].randomElement()
+    + " " + noun
+    + " " + connectors.randomElement()
+    + " " + corpora["computer_science_nouns"].randomElement();
 
-   caption = words.buzzword_adjective
-      + " " + noun1.pluralize()
-      + " " + connectors.randomElement()
-      + " " + words.cs_noun;
+  bullets = [];
+  var num_bullets = Math.floor((Math.random() * 5) + 1);
+  for(i = 0; i < num_bullets; i++){
+    bullet = generateBullet();
+    bullets.push(bullet);
+  }
 
-   bullet1 = ing(words.buzzword_verb).capitalize() + " " + words.buzzword_noun;
-   bullet2 = ing(corpora["buzzword_verbs"].randomElement()).capitalize() + " " + corpora["buzzword_nouns"].randomElement();
-   bullet3 = ing(corpora["buzzword_verbs"].randomElement()).capitalize() + " " + corpora["buzzword_nouns"].randomElement();
-   
    return { 
       "caption": caption.titleize(),
-      "bullet1": bullet1,
-      "bullet2": bullet2,
-      "bullet3": bullet3
+      "bullets": bullets
    };
 };
+
+var generateBullet = function() {
+  return ing(corpora["buzzword_verbs"].randomElement()).capitalize() + " " + corpora["buzzword_nouns"].randomElement();
+}
 
 var getImage = function() {
    var options = "&is_commons=true&per_page=10&format=json&content_type=4"
    var url = flickr_url + "&text=" + search_term + options + "&api_key=" + flickr_key;
-   //todo add load indicator
 
    $.ajax({url:url, dataType: "text"})
    .done(function(response, statusText){
@@ -168,7 +173,7 @@ var getImage = function() {
 
       if (num_images == 0){
          images = {};
-         search_term = words.nouns.randomElement();
+         search_term = corpora["nouns"].randomElement();
 
          return getImage();
       }
@@ -179,6 +184,14 @@ var getImage = function() {
       var link = getImageLink(item);
       $('#flickr_link').attr("href",link);
       $('#slide_image').attr("src",src);
+
+      $("#slide_image").remove();
+
+      var image = $('<img id="slide_image" src="' + src + '"/>');
+      $(image).load(positionText);
+      $("#image_container").append(image);
+
+      hideLoader();
    });
 };
 
