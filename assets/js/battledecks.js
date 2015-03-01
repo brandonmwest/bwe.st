@@ -16,7 +16,7 @@ Array.prototype.remove = function() {
     return this;
 };
 
-//https://github.com/ifnull/buzzwords/tree/master/data
+//https://github.com/ifnull/buzzwords/tree/master/assets/data
 var flickr_url='https://api.flickr.com/services/rest/?method=flickr.photos.search';
 var flickr_key='25501fe14617da5532a582aee01d1456';
 
@@ -28,51 +28,51 @@ var corpora = {};
 var corpora_urls = [
    {
       "name": "buzzword_adverbs",
-      "url": "/data/buzzwords/adverbs.json"
+      "url": "/assets/data/buzzwords/adverbs.json"
    },
    {
       "name": "buzzword_verbs",
-      "url": "/data/buzzwords/verbs.json"
+      "url": "/assets/data/buzzwords/verbs.json"
    },
    {
       "name": "buzzword_adjectives",
-      "url": "/data/buzzwords/adjectives.json"
+      "url": "/assets/data/buzzwords/adjectives.json"
    },
    {
       "name": "buzzword_nouns",
-      "url": "/data/buzzwords/nouns.json"
+      "url": "/assets/data/buzzwords/nouns.json"
    },
    {
       "name": "computer_science_nouns",
-      "url": "/data/technology/computer_sciences.json"
+      "url": "/assets/data/technology/computer_sciences.json"
    },
    {
       "name": "startups",
-      "url": "/data/technology/startups.json"
+      "url": "/assets/data/technology/startups.json"
    },
    {
       "name": "objects",
-      "url": "/data/objects/objects.json"
+      "url": "/assets/data/objects/objects.json"
    },
    {
       "name": "nasdaq_companies",
-      "url": "/data/corporations/nasdaq.json"
+      "url": "/assets/data/corporations/nasdaq.json"
    },
    {
       "name": "verbs",
-      "url": "/data/words/verbs.json"
+      "url": "/assets/data/words/verbs.json"
    },
    {
       "name": "nouns",
-      "url": "/data/words/nouns.json"
+      "url": "/assets/data/words/nouns.json"
    },
    {
       "name": "adverbs",
-      "url": "/data/words/adverbs.json"
+      "url": "/assets/data/words/adverbs.json"
    },
    {
       "name": "adjectives",
-      "url": "/data/words/adjectives.json"
+      "url": "/assets/data/words/adjectives.json"
    }
 ];
 
