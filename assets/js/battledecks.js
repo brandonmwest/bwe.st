@@ -93,14 +93,24 @@ var init = function(){
    });
 
     $('#generate').click(generateSlide);
+    $('#new_title').click(newTitle);
+    $('#new_bullets').click(newBullets);
+    $('#new_image').click(newImage);
+    $('#new_colors').click(randomTextColor);
 };
 
 $(document).ready(init);
 
 //http://stackoverflow.com/questions/5650924/javascript-color-contraster
-var setTextColor = function(red, green, blue) {
+var randomTextColor = function() {
+  var hex_color = Colors.randomElement();
+  var rgb = hexToRgb(hex_color);
+
+  $("#slide_content_container h2 span").css("background","rgba(" + rgb.r + "," + rgb.b + "," + rgb.b +", 0.8");
+  $("#slide_content_container ul").css("background","rgba(" + rgb.r + "," + rgb.b + "," + rgb.b +", 0.8");
+
   var brightness;
-  brightness = (red * 299) + (green * 587) + (blue * 114);
+  brightness = (rgb.r * 299) + (rgb.g * 587) + (rgb.b * 114);
   brightness = brightness / 255000;
 
   // values range from 0 to 1
@@ -114,14 +124,6 @@ var setTextColor = function(red, green, blue) {
 
 var positionText = function(){
   var random_top_offset = Math.floor((Math.random() * ($('#slide_image').height() - 250)) + 1);
-
-  var hex_color = Colors.randomElement();
-  var rgb = hexToRgb(hex_color);
-
-  $("#slide_content_container h2 span").css("background","rgba(" + rgb.r + "," + rgb.b + "," + rgb.b +", 0.8");
-  $("#slide_content_container ul").css("background","rgba(" + rgb.r + "," + rgb.b + "," + rgb.b +", 0.8");
-
-  setTextColor(rgb.r, rgb.g, rgb.b);
 
   $("#inner").css({
     position:         "absolute",
@@ -145,6 +147,25 @@ var hideLoader = function(){
   $('#slide_content_container').show();
 }
 
+var newTitle = function(){
+  var content = generateContent();
+  $('#slide_title').text(content.caption);
+}
+
+var newImage = function(){
+  search_term = corpora["nouns"].randomElement();
+  getImage();
+}
+
+var newBullets = function(){
+  var content = generateContent();
+
+  $("#bullets").html("");
+  content.bullets.forEach(function(bullet){
+    $("#bullets").append("<li>" + bullet + "</li>");
+  });
+}
+
 var generateSlide = function(){
   showLoader();
   $("#bullets").html("");
@@ -160,12 +181,12 @@ var generateSlide = function(){
 var connectors = ["using", "with", "employing", "implementing", "powered by"];
 
 var generateContent = function() {
-  noun = corpora["nouns"].randomElement().pluralize();
+  noun = corpora["nouns"].randomElement();
   search_term = noun;
 
   //randomly pick from several caption formats
   caption = corpora["buzzword_adjectives"].randomElement()
-    + " " + noun
+    + " " + noun.pluralize()
     + " " + connectors.randomElement()
     + " " + corpora["computer_science_nouns"].randomElement();
 
@@ -215,6 +236,7 @@ var getImage = function() {
 
       var image = $('<img id="slide_image" src="' + src + '"/>');
       $(image).load(positionText);
+      $(image).load(randomTextColor);
       $("#image_container").append(image);
 
       hideLoader();

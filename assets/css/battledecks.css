@@ -30,6 +30,10 @@ button:hover {
   text-decoration: none;
 }
 
+#buttons {
+	text-align: center;
+}
+
 #overlay { 
 	top: 0;
 	left: 0;
