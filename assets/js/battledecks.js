@@ -98,7 +98,8 @@ var init = function(){
     $('#new_image').click(newImage);
     $('#new_colors').click(randomTextColor);
 
-    $('#inner').draggable({ axis: "y", containment: "parent"});
+    $('#inner h2').draggable({ axis: "y", containment: "parent"});
+    $('#bullets').draggable({ containment: "parent"});
 };
 
 $(document).ready(init);
@@ -125,13 +126,14 @@ var randomTextColor = function() {
 }
 
 var positionText = function(){
-  var random_top_offset = Math.floor((Math.random() * ($('#slide_image').height() - 250)) + 1);
+  //var random_top_offset = Math.floor((Math.random() * ($('#slide_image').height() - 250)) + 1);
 
   $("#inner").css({
-    position:         "absolute",
-    top  : $('#slide_image').offset().top + random_top_offset,
+    position: "absolute",
+    top: $('#slide_image').offset().top,
     left : ($('#overlay').width() - $('#slide_image').innerWidth()) / 2,
-    width : $('#slide_image').width()
+    width : $('#slide_image').width(),
+    height : $('#slide_image').height()
   });
 }
 

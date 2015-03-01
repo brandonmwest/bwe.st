@@ -35,7 +35,7 @@ button:hover {
 	background:#000;
 }
 
-#inner {
+#slide_title, #bullets {
 	cursor:move;
 }
 
