@@ -1,6 +1,5 @@
 {
-    "description": "List of named HTML colors",
-    "colors": [
+    "data": [
         {
             "color": "AliceBlue",
             "hex": "#F0F8FF"

@@ -1,6 +1,5 @@
 {
-  "description": "A list of occupations (jobs that people might have).",
-  "occupations":
+  "data":
     ["accountant",
     "actor",
     "actuary",

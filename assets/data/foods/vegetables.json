@@ -1,6 +1,5 @@
 {
-    "description": "A list of vegetables.",
-    "vegetables": [
+    "data": [
         "acorn squash",
         "alfalfa sprout",
         "amaranth",

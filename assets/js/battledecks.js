@@ -27,52 +27,72 @@ var words = {};
 var corpora = {};
 var corpora_urls = [
    {
-      "name":         "buzzword_adverbs",
-      "url":         "/assets/data/buzzwords/adverbs.json"
+      "name":  "buzzword_adverbs",
+      "url":  "/assets/data/buzzwords/adverbs.json"
    },
    {
-      "name":         "buzzword_verbs",
-      "url":         "/assets/data/buzzwords/verbs.json"
+      "name":  "buzzword_verbs",
+      "url":  "/assets/data/buzzwords/verbs.json"
    },
    {
-      "name":         "buzzword_adjectives",
-      "url":         "/assets/data/buzzwords/adjectives.json"
+      "name":  "buzzword_adjectives",
+      "url":  "/assets/data/buzzwords/adjectives.json"
    },
    {
-      "name":         "buzzword_nouns",
-      "url":         "/assets/data/buzzwords/nouns.json"
+      "name":  "buzzword_nouns",
+      "url":  "/assets/data/buzzwords/nouns.json"
    },
    {
-      "name":         "computer_science_nouns",
-      "url":         "/assets/data/technology/computer_sciences.json"
+      "name":  "computer_science_nouns",
+      "url":  "/assets/data/technology/computer_sciences.json"
    },
    {
-      "name":         "startups",
-      "url":         "/assets/data/technology/startups.json"
+      "name":  "startups",
+      "url":  "/assets/data/technology/startups.json"
    },
    {
-      "name":         "objects",
-      "url":         "/assets/data/objects/objects.json"
+      "name":  "objects",
+      "url":  "/assets/data/objects/objects.json"
    },
    {
-      "name":         "nasdaq_companies",
-      "url":         "/assets/data/corporations/nasdaq.json"
+      "name":  "nasdaq_companies",
+      "url":  "/assets/data/corporations/nasdaq.json"
    },
    {
-      "name":         "verbs",
-      "url":         "/assets/data/words/verbs.json"
+      "name":  "verbs",
+      "url":  "/assets/data/words/verbs.json"
    },
    {
-      "name":         "nouns",
-      "url":         "/assets/data/words/nouns.json"
+      "name":  "nouns",
+      "url":  "/assets/data/words/nouns.json"
    },
    {
-      "name":         "adverbs",
-      "url":         "/assets/data/words/adverbs.json"
+      "name":  "adverbs",
+      "url":  "/assets/data/words/adverbs.json"
    },
    {
-      "name":         "adjectives",
-      "url":         "/assets/data/words/adjectives.json"
+      "name":  "adjectives",
+      "url":  "/assets/data/words/adjectives.json"
+   },
+   {
+      "name":  "animals",
+      "url":  "/assets/data/animals/common.json"
+   },
+   {
+      "name":  "colors",
+      "url":  "/assets/data/colors/web_colors.json"
+   },
+   {
+      "name":  "veggies",
+      "url":  "/assets/data/foods/vegetables.json"
+   },
+   {
+      "name":  "countries",
+      "url":  "/assets/data/geography/countries.json"
+   },
+   {
+      "name":  "jobs",
+      "url":  "/assets/data/humans/occupations.json"
    }
 ];
 
@@ -103,7 +123,7 @@ $(document).ready(init);
 
 //http://stackoverflow.com/questions/5650924/javascript-color-contraster
 var randomTextColor = function() {
-  var hex_color = Colors.randomElement();
+  var hex_color = corpora.colors.randomElement().hex;
   var rgb = hexToRgb(hex_color);
 
   $("#slide_content_container h2 span").css("background","rgba(" + rgb.r + "," + rgb.b + "," + rgb.b +", 0.8");
@@ -194,12 +214,42 @@ var connectors = ["using", "with", "employing", "implementing", "powered by"];
 var generateContent = function() {
   noun = corpora.nouns.randomElement();
   search_term = noun;
+  var random = Math.floor((Math.random() * 3) + 1);
 
-  //randomly pick from several caption formats
-  caption = corpora.buzzword_adjectives.randomElement() + 
-    " " + noun.pluralize() + 
-    " " + connectors.randomElement() +
-    " " + corpora.computer_science_nouns.randomElement();
+  switch(random) {
+    case 1:
+      noun = Math.floor((Math.random() * 2)) > 0 ? 
+               corpora.nouns.randomElement().pluralize() :
+               corpora.buzzword_nouns.randomElement().pluralize();
+
+      caption = corpora.buzzword_adjectives.randomElement() + 
+      " " + noun.pluralize() + 
+      " " + connectors.randomElement() +
+      " " + corpora.computer_science_nouns.randomElement();
+      break;
+
+    case 2:
+      adverbs = ['',corpora.adverbs.randomElement() + " ",corpora.buzzword_adverbs.randomElement() + " "];
+
+      caption = Math.floor((Math.random() * 2)) > 0 ? 
+        corpora.animals.randomElement().pluralize() 
+        : corpora.veggies.randomElement().pluralize();
+
+      caption = adverbs.randomElement() + corpora.buzzword_adjectives.randomElement() + " " + caption;
+
+      search_term=caption;
+      break;
+
+    case 3:
+      adverb = Math.floor((Math.random() * 2)) > 0 ? 
+               corpora.adverbs.randomElement() :
+               corpora.buzzword_adverbs.randomElement();
+
+      caption = adverb + 
+        " " + ing(corpora.verbs.randomElement().present.capitalize) + 
+        " " + corpora.nouns.randomElement().pluralize();
+      break;
+  }
 
   bullets = [];
   var num_bullets = Math.floor((Math.random() * 5) + 1);
@@ -215,7 +265,39 @@ var generateContent = function() {
 };
 
 var generateBullet = function() {
-  return ing(corpora.buzzword_verbs.randomElement()).capitalize() + " " + corpora.buzzword_nouns.randomElement();
+  var random = Math.floor((Math.random() * 6) + 1);
+  var bullet = '';
+
+  switch(random) {
+    case 1:
+      bullet =  ing(corpora.buzzword_verbs.randomElement()).capitalize() + 
+                " " + corpora.buzzword_nouns.randomElement();
+    break;
+
+    case 2:
+      noun = Math.floor((Math.random() * 2)) > 0 ? 
+               corpora.nasdaq_companies.randomElement().name :
+               corpora.jobs.randomElement().pluralize();
+
+      bullet = corpora.verbs.randomElement().past.capitalize() + 
+                " by " + noun +
+                " in " + corpora.countries.randomElement().capitalize();     
+
+    break;
+
+    case 3:
+      bullet = corpora.adjectives.randomElement().capitalize() + 
+                " " + corpora.jobs.randomElement().pluralize();     
+    break;
+
+
+    default:
+      bullet = ing(corpora.buzzword_verbs.randomElement()).capitalize() + 
+                " " + corpora.buzzword_nouns.randomElement();
+    break;
+  }
+  
+  return bullet;
 };
 
 var getImage = function(random) {
@@ -239,7 +321,7 @@ var getImage = function(random) {
       }
       var src = item.url;
       
-      if(src.indexOf("mp4") != -1)
+      if( (src.indexOf("mp4") != -1) || (src.indexOf("webm") != -1))
         return getImage(true);
 
       $("#slide_image").remove();
@@ -295,6 +377,9 @@ var getImageLink = function(item){
 
 //from github.com/dariusk
 var ing = function(verb) {
+  if (verb.length < 2)
+    return;
+
   var result = '';
 
   // if it ends in b, double the b
@@ -329,50 +414,6 @@ var ing = function(verb) {
 
   return result;
 };
-
-Colors = ["#00ffff",
-"#f0ffff",
-"#f5f5dc",
-"#000000",
-"#0000ff",
-"#a52a2a",
-"#00ffff",
-"#00008b",
-"#008b8b",
-"#a9a9a9",
-"#006400",
-"#bdb76b",
-"#8b008b",
-"#556b2f",
-"#ff8c00",
-"#9932cc",
-"#8b0000",
-"#e9967a",
-"#9400d3",
-"#ff00ff",
-"#ffd700",
-"#008000",
-"#4b0082",
-"#f0e68c",
-"#add8e6",
-"#e0ffff",
-"#90ee90",
-"#d3d3d3",
-"#ffb6c1",
-"#ffffe0",
-"#00ff00",
-"#ff00ff",
-"#800000",
-"#000080",
-"#808000",
-"#ffa500",
-"#ffc0cb",
-"#800080",
-"#800080",
-"#ff0000",
-"#c0c0c0",
-"#ffffff",
-"#ffff00"];
 
 var hexToRgb = function(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
