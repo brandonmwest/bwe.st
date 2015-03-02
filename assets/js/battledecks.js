@@ -246,7 +246,7 @@ var generateContent = function() {
                corpora.buzzword_adverbs.randomElement();
 
       caption = adverb + 
-        " " + ing(corpora.verbs.randomElement().present.capitalize) + 
+        " " + ing(corpora.verbs.randomElement().present.capitalize()) + 
         " " + corpora.nouns.randomElement().pluralize();
       break;
   }
