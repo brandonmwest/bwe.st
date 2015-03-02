@@ -21,6 +21,10 @@ button:hover {
   text-decoration: none;
 }
 
+#slide_image {
+	max-width: 800px;
+}
+
 #buttons {
 	z-index: 1000;
 	text-align: center;

@@ -5,8 +5,8 @@
 //find better source of images
 
 Array.prototype.randomElement = function () {
-    return this[Math.floor(Math.random() * this.length)]
-}
+    return this[Math.floor(Math.random() * this.length)];
+};
 
 Array.prototype.remove = function() {
     var what, a = arguments, L = a.length, ax;
@@ -20,12 +20,11 @@ Array.prototype.remove = function() {
 };
 
 //https://github.com/ifnull/buzzwords/tree/master/assets/data
-var flickr_url='https://api.flickr.com/services/rest/?method=flickr.photos.search';
-var flickr_key='25501fe14617da5532a582aee01d1456';
 
+var search_url = 'http://www.splashbase.co/api/v1/images/search/';
+var random_url = 'http://www.splashbase.co/api/v1/images/random';
 var search_term='';
 var words = {};
-var images = {};
 
 var corpora = {};
 var corpora_urls = [
@@ -119,11 +118,11 @@ var randomTextColor = function() {
   // values range from 0 to 1
   // anything greater than 0.5 should be bright enough for dark text
   if (brightness >= 0.5) {
-    $('#slide_content_container').css("color","#222")
+    $('#slide_content_container').css("color","#222");
   } else {
-    $('#slide_content_container').css("color","#EEE")
+    $('#slide_content_container').css("color","#EEE");
   }
-}
+};
 
 var positionText = function(){
   $("#inner").css({
@@ -137,7 +136,7 @@ var positionText = function(){
   $('#bullets').css({
     top: $('#slide_image').offset().top - 100
   });
-}
+};
 
 var showLoader = function(){
   $("#overlay").css({
@@ -153,23 +152,23 @@ var showLoader = function(){
   });
   $('#slide_content_container').hide();
   $('#overlay').show();
-}
+};
 
 var hideLoader = function(){
   $('#overlay').hide();
   $('#slide_content_container').show();
-}
+};
 
 var newTitle = function(){
   var content = generateContent();
   $('#slide_title').text(content.caption);
-}
+};
 
 var newImage = function(){
   showLoader();
-  search_term = corpora["nouns"].randomElement();
+  search_term = corpora.nouns.randomElement();
   getImage();
-}
+};
 
 var newBullets = function(){
   var content = generateContent();
@@ -178,7 +177,7 @@ var newBullets = function(){
   content.bullets.forEach(function(bullet){
     $("#bullets").append("<li>" + bullet + "</li>");
   });
-}
+};
 
 var generateSlide = function(){
   showLoader();
@@ -190,19 +189,19 @@ var generateSlide = function(){
     $("#bullets").append("<li>" + bullet + "</li>");
    });
    getImage();
-}
+};
 
 var connectors = ["using", "with", "employing", "implementing", "powered by"];
 
 var generateContent = function() {
-  noun = corpora["nouns"].randomElement();
+  noun = corpora.nouns.randomElement();
   search_term = noun;
 
   //randomly pick from several caption formats
-  caption = corpora["buzzword_adjectives"].randomElement()
-    + " " + noun.pluralize()
-    + " " + connectors.randomElement()
-    + " " + corpora["computer_science_nouns"].randomElement();
+  caption = corpora.buzzword_adjectives.randomElement() + 
+    " " + noun.pluralize() + 
+    " " + connectors.randomElement() +
+    " " + corpora.computer_science_nouns.randomElement();
 
   bullets = [];
   var num_bullets = Math.floor((Math.random() * 5) + 1);
@@ -218,33 +217,32 @@ var generateContent = function() {
 };
 
 var generateBullet = function() {
-  return ing(corpora["buzzword_verbs"].randomElement()).capitalize() + " " + corpora["buzzword_nouns"].randomElement();
-}
+  return ing(corpora.buzzword_verbs.randomElement()).capitalize() + " " + corpora.buzzword_nouns.randomElement();
+};
 
-var getImage = function() {
-   var options = "&is_commons=true&per_page=10&format=json&content_type=4"
-   var url = flickr_url + "&text=" + search_term + options + "&api_key=" + flickr_key;
+var getImage = function(random) {
+   var url = random ? random_url : search_url;
 
-   $.ajax({url:url, dataType:         "text"})
+   $.ajax({
+      url:url,
+      dataType: "json",
+      data: { "query": search_term }
+    })
    .done(function(response, statusText){
-      var text = response;
-      var json_string = text.replace("jsonFlickrApi(","").slice(0, - 1);
-      var data = JSON.parse(json_string);
-
-      var num_images = data.photos.photo.length;
-
-      if (num_images == 0){
-         images = {};
-         search_term = corpora["nouns"].randomElement();
-
-         return getImage();
+      if(!random){
+        var num_images = response.images.length;
+        if (num_images === 0){
+          return getImage(true);
+        }
+  
+        var item = response.images.randomElement();
+      } else {
+        item = response;
       }
-
-      images = data.photos.photo;
-      var item = data.photos.photo.randomElement();
-      var src = getImageSrc(item);
-      var link = getImageLink(item);
-      $('#flickr_link').attr("href",link);
+      var src = item.url;
+      
+      if(src.indexOf("mp4") != -1)
+        return getImage(true);
 
       $("#slide_image").remove();
 
@@ -279,7 +277,7 @@ var getImageSrc = function(item){
    var img='http://farm'+farm+'.static.flickr.com/'+server+'/'+base;
    
    return img;
-}
+};
 
 var getImageLink = function(item){
    var id=item.id;
@@ -295,7 +293,7 @@ var getImageLink = function(item){
    var urlz='http://www.flickr.com/photos/'+owner+'/'+id;
    
    return urlz;   //var link='<a rel="flickr" title="'+ttlink+'" href="'+url+'" mce_href="'+url+'">'+html+'</a>';
-}
+};
 
 //from github.com/dariusk
 var ing = function(verb) {
@@ -332,7 +330,7 @@ var ing = function(verb) {
   result = verb + 'ing';
 
   return result;
-}
+};
 
 Colors = ["#00ffff",
 "#f0ffff",
@@ -376,7 +374,7 @@ Colors = ["#00ffff",
 "#ff0000",
 "#c0c0c0",
 "#ffffff",
-"#ffff00"]
+"#ffff00"];
 
 var hexToRgb = function(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -385,4 +383,4 @@ var hexToRgb = function(hex) {
         g: parseInt(result[2], 16),
         b: parseInt(result[3], 16)
     } : null;
-}
+};
