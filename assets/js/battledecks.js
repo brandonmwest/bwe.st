@@ -214,18 +214,11 @@ var connectors = ["using", "with", "employing", "implementing", "powered by"];
 var generateContent = function() {
   noun = corpora.nouns.randomElement();
   search_term = noun;
-  var random = Math.floor((Math.random() * 3) + 1);
+  var random = Math.floor((Math.random() * 7) + 1);
 
   switch(random) {
     case 1:
-      noun = Math.floor((Math.random() * 2)) > 0 ? 
-               corpora.nouns.randomElement().pluralize() :
-               corpora.buzzword_nouns.randomElement().pluralize();
 
-      caption = corpora.buzzword_adjectives.randomElement() + 
-      " " + noun.pluralize() + 
-      " " + connectors.randomElement() +
-      " " + corpora.computer_science_nouns.randomElement();
       break;
 
     case 2:
@@ -248,6 +241,17 @@ var generateContent = function() {
       caption = adverb + 
         " " + ing(corpora.verbs.randomElement().present.capitalize()) + 
         " " + corpora.nouns.randomElement().pluralize();
+      break;
+
+    default:
+      noun = Math.floor((Math.random() * 2)) > 0 ? 
+               corpora.nouns.randomElement().pluralize() :
+               corpora.buzzword_nouns.randomElement().pluralize();
+
+      caption = corpora.buzzword_adjectives.randomElement() + 
+      " " + noun.pluralize() + 
+      " " + connectors.randomElement() +
+      " " + corpora.computer_science_nouns.randomElement();
       break;
   }
 
