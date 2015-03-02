@@ -54,7 +54,12 @@ button:hover {
 
 #slide_content_container {
 	display:none;
-	color: white; 
+	color: #EEE; 
+}
+
+h1 {
+	font-size:48px;
+	color:#eee;
 }
 
 #slide_content_container #slide_image{ 

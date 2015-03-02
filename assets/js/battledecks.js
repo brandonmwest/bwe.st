@@ -1,8 +1,6 @@
 //add more kinds of captions and randomly choose them
-
 //utilize company corpora
-
-//find better source of images
+//random fonts
 
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)];
@@ -140,7 +138,7 @@ var positionText = function(){
 
 var showLoader = function(){
   $("#overlay").css({
-    top  : "100px",
+    top  : "200px",
     left : $('#slide_content_container').left,
     height: $('body').height(),
     width : $('body').width()
