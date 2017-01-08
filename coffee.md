@@ -1,9 +1,5 @@
 ---
-layout: page
-title: Coffee
 ---
-{% include JB/setup %}
-
 <!-- Pleace this snippet right after opening the head tag to make it work properly -->
 
 <!-- This code is licensed under GNU GPL v3 -->
