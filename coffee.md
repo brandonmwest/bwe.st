@@ -1,5 +1,5 @@
 ---
-layout: empty
+layout: null
 ---
 
 <!-- Pleace this snippet right after opening the head tag to make it work properly -->
