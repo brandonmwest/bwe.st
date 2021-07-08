@@ -6,7 +6,7 @@ title: About
 
 ## Hi, I'm Brandon West.
 
-<a href="/Brandon West - resume.pdf"><i class="icon-file" style="vertical-align: baseline"></i> Résumé</a>
+<a href="http://bwe.st/Brandon West - resume.pdf"><i class="icon-file" style="vertical-align: baseline"></i> Résumé</a>
 
 I love technology and playing around with new and exciting things. I fell in love with computers when my parents bought an Apple IIGS sometime around 1988. Then, in 3rd grade, my computer lab teacher opened my eyes to the magic of modems. When my dad got a work laptop that had a 2400 baud modem, I started dialing in to local bulletin board systems with phone numbers gathered from the back pages of computing magazines. The BBSes fostered communities of people that loved technology as much as I did, and I was hooked. Then a bit later, the world wide web came along, and I was lucky enough to turn my passion into a career.
 
