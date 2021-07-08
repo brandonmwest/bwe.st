@@ -4,7 +4,7 @@ title: About
 ---
 {% include JB/setup %}
 
-## Hi, I'm Brandon.
+## Hi, I'm Brandon West.
 
 <a href="Brandon West - Resume.pdf"><i class="icon-save-file"></i> Résumé</a>
 
